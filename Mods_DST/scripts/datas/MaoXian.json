@@ -1,0 +1,56 @@
+[
+{
+  "name": "the global plan",
+  "disabled": false,
+  "hide": [".QuestionHeader","div.List-header", ".AuthorInfo", ".Reward", ".FeeConsultCard", ".ContentItem-actions.RichContent-actions", ".RichText-MCNLinkCardContainer", ".Post-topicsAndReviewer", ".RichContent-actions", ".Post-Sub.Post-NormalSub", ".Post-Author"],
+  "hideExcept": [
+       {"inside": ".Question-main", "except": [".Question-mainColumn"]}
+  ],
+  "chAttr": [
+      {
+        "type": "split2list.remove",
+        "pick": ".ContentItem .RichContent",
+        "attr": "class",
+        "value": [
+          "is-collapsed"
+        ]
+      },
+      {
+        "type": "split2list.remove",
+        "pick": ".ContentItem-actions",
+        "attr": "class",
+        "value": [
+          "Sticky",
+          "is-fixed",
+          "is-bottom"
+        ],
+        "sep": " "
+      },
+      {
+        "type": "assign.from.self-attr",
+        "pick": "img",
+        "attr": "src",
+        "tAttr": "data-original"
+      },
+      {
+        "type": "replace.last-match",
+        "pick": ".GifPlayer > img",
+        "attr": "src",
+        "subStr": ".jpg",
+        "newStr": ".gif"
+      }
+    ]
+},
+  {
+  "name": "zhihu p",
+  "pattern": "https://zhuanlan.zhihu.com/p/*",
+  "chAttr":[
+  {
+          "type": "assign.from.self-attr",
+          "pick": "img",
+          "attr": "src",
+          "tAttr": "srcset"
+        }
+  ]
+  }
+]

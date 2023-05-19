@@ -1,0 +1,10 @@
+local function AddMove(inst)
+    local function OnDeploy(inst, pt)
+        GLOBAL.SpawnPrefab("gnatmound").Transform:SetPosition(pt.x, pt.y, pt.z)
+        inst.components.stackable:Get():Remove()
+    end
+    inst:AddComponent("deployable")
+    inst.components.deployable.ondeploy = OnDeploy
+end
+
+AddPrefabPostInit("petals", AddMove)
